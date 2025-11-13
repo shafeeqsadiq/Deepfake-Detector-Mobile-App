@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Environment variables (NEVER commit this!)
+.env
+
+# Temporary files
+uploads/*.mp4
+uploads/*.mov
+uploads/*.avi
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
