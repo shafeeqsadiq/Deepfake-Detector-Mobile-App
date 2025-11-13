@@ -28,12 +28,18 @@ const PORT = process.env.PORT || 3002; // Use Render's PORT or 3002 for local
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
-// Root endpoint - health check
+// Health check endpoint - responds immediately
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
+// Root endpoint - API info
 app.get('/', (req, res) => {
   res.json({ 
     message: 'Deepfake Detector API is running',
     status: 'healthy',
     endpoints: {
+      health: 'GET /health',
       analyze: 'POST /analyze',
       analyzeVideo: 'POST /analyze-video',
       analyzeVideoUrl: 'POST /analyze-video-url',
